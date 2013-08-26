@@ -13,3 +13,4 @@ Contents:
 
    userinfo
    timetable
+   report
