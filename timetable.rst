@@ -44,8 +44,8 @@
               "instructor": "이인환",
               "score": 3.00,
               "time": [
-                {"start_time": 216, "end_time": 218},
-                {"start_time": 514, "end_time": 516}
+                {"start_time": 216, "end_time": 218, "room": "H77-0207"},
+                {"start_time": 514, "end_time": 516, "room": "H77-0207"}
               ]
             },
             {
@@ -55,8 +55,8 @@
               "instructor": "김상욱",
               "score": 3.00,
               "time": [
-                {"start_time": 115, "end_time": 117},
-                {"start_time": 315, "end_time": 317}
+                {"start_time": 115, "end_time": 117, "room": "H77-0813"},
+                {"start_time": 315, "end_time": 317, "room": "H77-0813"}
               ]
             },
             {
@@ -66,7 +66,7 @@
               "instructor": null,
               "score": 2.00,
               "time": [
-                {"start_time": 607, "end_time": 610}
+                {"start_time": 607, "end_time": 610, "room": "H"}
               ]
             },
             {
@@ -76,8 +76,8 @@
               "instructor": "유인경",
               "score": 3.00,
               "time": [
-                {"start_time": 213, "end_time": 215},
-                {"start_time": 306, "end_time": 308}
+                {"start_time": 213, "end_time": 215, "room": "H93-0811"},
+                {"start_time": 306, "end_time": 308, "room": "H93-0811"}
               ]
             },
             {
@@ -87,8 +87,8 @@
               "instructor": "임을규",
               "score": 3.00,
               "time": [
-                {"start_time": 303, "end_time": 305},
-                {"start_time": 505, "end_time": 507}
+                {"start_time": 303, "end_time": 305, "room": "H77-0813"},
+                {"start_time": 505, "end_time": 507, "room": "H77-0507"}
               ]
             },
             {
@@ -98,8 +98,8 @@
               "instructor": "조인휘",
               "score": 3.00,
               "time": [
-                {"start_time": 418, "end_time": 420},
-                {"start_time": 512, "end_time": 514}
+                {"start_time": 418, "end_time": 420, "room": "H77-0203"},
+                {"start_time": 512, "end_time": 514, "room": "H77-0501"}
               ]
             },
             {
@@ -109,12 +109,21 @@
               "instructor": "장의선",
               "score": 2.00,
               "time": [
-                {"start_time": 205, "end_time": 208}
+                {"start_time": 205, "end_time": 208, "room": "H77-0813"}
               ]
             }
           ]
         }
       ]
+
+   응답의 결과로 나온 배열에 포함된 객체에는 ``classes`` 라는 속성이 있고,
+   이 속성에 대한 값으로는 시간표에 포함된 강좌들의 정보가 배열로 주어진다.
+   이 배열에 포함된 객체에는 ``time`` 이라는 속성이 있고,
+   이 속성에 대한 값으로는 해당 강좌의 강의시간 정보가 배열로 주어진다.
+   이 배열에 포함된 객체에는 ``start_time`` 과 ``end_time`` 이라는 속성이 있는데,
+   두 속성에 대한 값으로는 세 자리 정수가 주어진다.
+   첫 번째 자리 수는 요일(1: 월요일, 2: 화요일, ...)을 나타내며,
+   뒤의 두 자리 수는 교시를 나타낸다.
 
    :resheader Content-Type: ``application/json``
    :statuscode 200: 시간표들 받아오기 성공
@@ -155,8 +164,8 @@
             "instructor": "이인환",
             "score": 3.00,
             "time": [
-              {"start_time": 216, "end_time": 218},
-              {"start_time": 514, "end_time": 516}
+              {"start_time": 216, "end_time": 218, "room": "H77-0207"},
+              {"start_time": 514, "end_time": 516, "room": "H77-0207"}
             ]
           },
           {
@@ -166,8 +175,8 @@
             "instructor": "김상욱",
             "score": 3.00,
             "time": [
-              {"start_time": 115, "end_time": 117},
-              {"start_time": 315, "end_time": 317}
+              {"start_time": 115, "end_time": 117, "room": "H77-0813"},
+              {"start_time": 315, "end_time": 317, "room": "H77-0813"}
             ]
           },
           {
@@ -177,7 +186,7 @@
             "instructor": null,
             "score": 2.00,
             "time": [
-              {"start_time": 607, "end_time": 610}
+              {"start_time": 607, "end_time": 610, "room": "H"}
             ]
           },
           {
@@ -187,8 +196,8 @@
             "instructor": "유인경",
             "score": 3.00,
             "time": [
-              {"start_time": 213, "end_time": 215},
-              {"start_time": 306, "end_time": 308}
+              {"start_time": 213, "end_time": 215, "room": "H93-0811"},
+              {"start_time": 306, "end_time": 308, "room": "H93-0811"}
             ]
           },
           {
@@ -198,8 +207,8 @@
             "instructor": "임을규",
             "score": 3.00,
             "time": [
-              {"start_time": 303, "end_time": 305},
-              {"start_time": 505, "end_time": 507}
+              {"start_time": 303, "end_time": 305, "room": "H77-0813"},
+              {"start_time": 505, "end_time": 507, "room": "H77-0507"}
             ]
           },
           {
@@ -209,8 +218,8 @@
             "instructor": "조인휘",
             "score": 3.00,
             "time": [
-              {"start_time": 418, "end_time": 420},
-              {"start_time": 512, "end_time": 514}
+              {"start_time": 418, "end_time": 420, "room": "H77-0203"},
+              {"start_time": 512, "end_time": 514, "room": "H77-0501"}
             ]
           },
           {
@@ -220,11 +229,20 @@
             "instructor": "장의선",
             "score": 2.00,
             "time": [
-              {"start_time": 205, "end_time": 208}
+              {"start_time": 205, "end_time": 208, "room": "H77-0813"}
             ]
           }
         ]
       }
+
+   응답의 결과로 나온 객체에는 ``classes`` 라는 속성이 있고,
+   이 속성에 대한 값으로는 시간표에 포함된 강좌들의 정보가 배열로 주어진다.
+   이 배열에 포함된 객체에는 ``time`` 이라는 속성이 있고,
+   이 속성에 대한 값으로는 해당 강좌의 강의시간 정보가 배열로 주어진다.
+   이 배열에 포함된 객체에는 ``start_time`` 과 ``end_time`` 이라는 속성이 있는데,
+   두 속성에 대한 값으로는 세 자리 정수가 주어진다.
+   첫 번째 자리 수는 요일(1: 월요일, 2: 화요일, ...)을 나타내며,
+   뒤의 두 자리 수는 교시를 나타낸다.
 
    :resheader Content-Type: ``application/json``
    :statuscode 200: 시간표 받아오기 성공

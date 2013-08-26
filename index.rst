@@ -14,3 +14,5 @@ Contents:
    userinfo
    timetable
    report
+   major
+
