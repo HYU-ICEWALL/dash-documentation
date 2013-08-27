@@ -13,4 +13,8 @@ Contents:
 
    userinfo
    timetable
+<<<<<<< HEAD
    major
+=======
+   report
+>>>>>>> report
