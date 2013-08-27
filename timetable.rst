@@ -3,6 +3,21 @@
 
 이 페이지에서는 사용자가 보관한 시간표를 처리하는 API를 다룬다.
 
+.. _timetable-object:
+
+시간표 객체
+===========
+
+시간표들을 처리하는 API는 시간표의 정보가 포함된 객체 혹은 이것의 배열들을 사용한다. 시간표 객체에는 다음과 같은 속성이 있다.
+
+   * `id` – 시간표의 ID
+   * `name` – 시간표의 이름
+   * `created_by` – 시간표를 생성한 사용자의 ID. :ref:`user-object` 참조.
+   * `created_time` – 시간표를 생성한 날짜와 시각. ISO-8601 date-time을 포함하는 문자열이다.
+   * `classes` – 시간표에 포함된 강좌의 목록. :ref:`class-object` 의 배열로 이루어져 있다.
+                 단, :http:post:`/api/timetables` 에서는 :ref:`class-object` 의 속성 중에서 
+                 `course_no` 와 `class_no` 속성만 필요하다.
+
 시간표 API
 ==========
 
@@ -116,14 +131,7 @@
         }
       ]
 
-   응답의 결과로 나온 배열에 포함된 객체에는 ``classes`` 라는 속성이 있고,
-   이 속성에 대한 값으로는 시간표에 포함된 강좌들의 정보가 배열로 주어진다.
-   이 배열에 포함된 객체에는 ``time`` 이라는 속성이 있고,
-   이 속성에 대한 값으로는 해당 강좌의 강의시간 정보가 배열로 주어진다.
-   이 배열에 포함된 객체에는 ``start_time`` 과 ``end_time`` 이라는 속성이 있는데,
-   두 속성에 대한 값으로는 세 자리 정수가 주어진다.
-   첫 번째 자리 수는 요일(1: 월요일, 2: 화요일, ...)을 나타내며,
-   뒤의 두 자리 수는 교시를 나타낸다.
+   :ref:`timetable-object` 의 배열로 이루어져 있다.
 
    :resheader Content-Type: ``application/json``
    :statuscode 200: 시간표들 받아오기 성공
@@ -235,14 +243,7 @@
         ]
       }
 
-   응답의 결과로 나온 객체에는 ``classes`` 라는 속성이 있고,
-   이 속성에 대한 값으로는 시간표에 포함된 강좌들의 정보가 배열로 주어진다.
-   이 배열에 포함된 객체에는 ``time`` 이라는 속성이 있고,
-   이 속성에 대한 값으로는 해당 강좌의 강의시간 정보가 배열로 주어진다.
-   이 배열에 포함된 객체에는 ``start_time`` 과 ``end_time`` 이라는 속성이 있는데,
-   두 속성에 대한 값으로는 세 자리 정수가 주어진다.
-   첫 번째 자리 수는 요일(1: 월요일, 2: 화요일, ...)을 나타내며,
-   뒤의 두 자리 수는 교시를 나타낸다.
+   JSON 파라미터에 대한 정보는 :ref:`timetable-object` 참조.
 
    :resheader Content-Type: ``application/json``
    :statuscode 200: 시간표 받아오기 성공
@@ -273,10 +274,7 @@
         ]
       }
 
-   :jsonparam string name: 생성할 시간표의 이름
-   :jsonparam array classes: 생성할 시간표에 포함된 강좌들.
-                             과목 번호에 해당하는 `course_no` 필드와
-                             강좌 번호에 해당하는 `class_no` 필드로 구성된 객체들의 배열이다.
+   JSON 파라미터에 대한 정보는 :ref:`timetable-object` 참조.
    :reqheader Content-Type: ``application/json``
 
    **응답 예시**:

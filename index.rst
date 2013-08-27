@@ -12,7 +12,7 @@ Contents:
    :maxdepth: 1
 
    userinfo
+   major
+   class
    timetable
    report
-   major
-

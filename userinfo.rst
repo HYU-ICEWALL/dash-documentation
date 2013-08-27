@@ -3,6 +3,19 @@
 
 이 페이지에서는 사용자 정보를 처리하는 API를 다룬다.
 
+.. _user-object:
+
+사용자 객체
+===========
+
+사용자들을 처리하는 API는 사용자의 정보가 포함된 객체 혹은 이것의 배열들을 사용한다. 사용자 객체에는 다음과 같은 속성이 있다.
+
+   * `id` – 사용자의 ID. :http:post:`/api/users` 에서는 필요하지 않다.
+   * `email` – 사용자의 이메일 주소.
+   * `password` – 사용자의 암호. :http:get:`/api/login` 에서만 사용됨.
+   * `major` – 사용자의 소속 전공. :ref:`major-object` 의 `code` 에 해당한다.
+   * `fb_id` – 선택적임. 사용자의 Facebook ID.
+
 로그인하지 않은 사용자를 위한 API
 =================================
 
@@ -25,10 +38,8 @@
         "fb_id": "facebook.id"
       }
 
-   :jsonparam string email: 사용자의 이메일 주소
-   :jsonparam string password: 사용자의 암호
-   :jsonparam string major: 사용자의 소속 전공
-   :jsonparam string fb_id: 선택적인(optional) 사용자의 Facebook 계정 ID
+   JSON 파라미터에 대한 정보는 :ref:`user-object` 참조.
+
    :reqheader Content-Type: ``application/json``
    :reqheader Accept: ``application/json`` 혹은 ``text/javascript``
 
@@ -154,10 +165,7 @@
         "fb_id": "facebook.id"
       }
 
-   :jsonparam string email: 사용자의 이메일 주소
-   :jsonparam string password: 사용자의 암호
-   :jsonparam string major: 사용자의 소속 전공
-   :jsonparam string fb_id: 사용자의 Facebook 계정 ID
+   JSON 파라미터에 대한 정보는 :ref:`user-object` 참조.
    :reqheader Content-Type: ``application/json``
 
    **응답 예시**:
