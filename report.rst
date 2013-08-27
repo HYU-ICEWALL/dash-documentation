@@ -81,7 +81,7 @@
    :statuscode 400: 쿼리 파라미터가 올바르지 않음
    :statuscode 404: 신고 목록을 받아올 권한이 없음
 
-.. http:get:: /api/reports/:id
+.. http:get:: /api/reports/(id)
    
    ID가 `id` 인 신고 항목
 
@@ -117,7 +117,7 @@
    :statuscode 404: 신고 항목의 정보를 받아올 권한이 없음
 
 
-.. http:put:: /api/reports/:id
+.. http:put:: /api/reports/(:id)
    
    특정 리포팅의 정보 수정
 
@@ -155,7 +155,7 @@
    :statuscode 400: 신고 항목의 정보가 올바르지 않음
    :statuscode 404: 신고 항목의 정보를 수정할 권한이 없음
 
-.. http:delete:: /api/reports/:id
+.. http:delete:: /api/reports/(:id)
    
    특정 신고 항목을 삭제함
 

@@ -22,7 +22,7 @@
 
    * `score` – 강좌의 학점. 실수 형태로 주어진다.
    * `instructor` – 강좌를 담당하는 교강사 성명
-   * `"category"` – 강좌의 이수구분
+   * `category` – 강좌의 이수구분
 
 강좌 API
 ===========
@@ -52,10 +52,10 @@
    **응답 예시**:
  
    .. sourcecode:: http
- 
+
       HTTP/1.1 200 OK
-      Content-Type=application/json
-  
+      Content-Type: application/json
+
       [
         {
           "class_no": "10462",
@@ -89,8 +89,8 @@
           "name": "신호와시스템",
           "major": "MT303",
           "time": [
-            {"start_time": 207, "end_time": 209, "room": H77-0207},
-            {"start_time": 403, "end_time": 405, "room": H77-0207}
+            {"start_time": 207, "end_time": 209, "room": "H77-0207"},
+            {"start_time": 403, "end_time": 405, "room": "H77-0207"}
           ],
           "score": 3.00,
           "instructor": "이상화",
@@ -102,8 +102,8 @@
           "name": "선형대수",
           "major": "MT303",
           "time": [
-            {"start_time": 116, "end_time": 118, "room": H77-0203},
-            {"start_time": 316, "end_time": 318, "room": H77-0207}
+            {"start_time": 116, "end_time": 118, "room": "H77-0203"},
+            {"start_time": 316, "end_time": 318, "room": "H77-0207"}
           ],
           "score": 3.00,
           "instructor": "이병호",
@@ -118,11 +118,11 @@
    **요청 예시**
  
    .. sourcecode:: http
- 
+
       POST /api/classes HTTP/1.1
       Host: example.com
       Content-Type: application/json
-  
+
       {
         "class_no": "10464",
         "course_no": "CSE409",
@@ -135,7 +135,7 @@
         "score": 3.00,
         "instructor": "조인휘",
         "category": "전공핵심"
-      },
+      }
  
    JSON 파라미터에 대한 정보는 :ref:`class-object` 참조.
 
@@ -157,11 +157,11 @@
    **요청 예시**
  
    .. sourcecode:: http
- 
+
       PUT /api/classes/10464 HTTP/1.1
       Host: example.com
       Content-Type: application/json
-  
+
       {
         "class_no": "10464",
         "course_no": "CSE409",
@@ -174,7 +174,7 @@
         "score": 3.00,
         "instructor": "조인휘",
         "category": "전공핵심"
-      },
+      }
  
    JSON 파라미터에 대한 정보는 :ref:`class-object` 참조.
 
@@ -196,20 +196,20 @@
    **요청 예시**
  
    .. sourcecode:: http
- 
+
       GET /api/classes/10464 HTTP/1.1
       Host: example.com
       Accept: application/json, text/javascript
- 
+
    :param class_no: 받아올 강좌의 수업코드
    :request Accept: ``application/json`` 혹은 ``text/javascript``
  
    **응답 예시**
  
    .. sourcecode:: http
- 
+
       HTTP/1.1 200 OK
- 
+
       {
         "class_no": "10464",
         "course_no": "CSE409",
@@ -222,7 +222,7 @@
         "score": 3.00,
         "instructor": "조인휘",
         "category": "전공핵심"
-      },
+      }
  
    :resheader Content-Type: ``application/json``
    :statuscode 200: 강좌 정보 수정 성공

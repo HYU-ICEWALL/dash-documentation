@@ -275,6 +275,7 @@
       }
 
    JSON 파라미터에 대한 정보는 :ref:`timetable-object` 참조.
+   
    :reqheader Content-Type: ``application/json``
 
    **응답 예시**:
