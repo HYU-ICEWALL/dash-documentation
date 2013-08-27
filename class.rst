@@ -178,6 +178,7 @@
  
    JSON 파라미터에 대한 정보는 :ref:`class-object` 참조.
 
+   :param class_no: 강좌 번호
    :reqheader Content-Type: ``application/json``
   
    **응답 예시**
@@ -201,7 +202,7 @@
       Host: example.com
       Accept: application/json, text/javascript
 
-   :param class_no: 받아올 강좌의 수업코드
+   :param class_no: 강좌 번호
    :request Accept: ``application/json`` 혹은 ``text/javascript``
  
    **응답 예시**
@@ -238,9 +239,8 @@
  
       DELETE /api/classes/10464 HTTP/1.1
       Host: example.com
-      Accept: application/json, text/javascript
  
-   :param class_no: 삭제하려는 강좌의 강좌 번호
+   :param class_no: 강좌 번호
  
    **응답 예시**
  

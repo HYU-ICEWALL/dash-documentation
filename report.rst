@@ -93,6 +93,7 @@
       Host: example.com
       Accept: application/json, text/javascript
    
+   :param id: 신고 항목의 ID
    :reqheader Accept: ``application/json`` 혹은 ``text/javascript``
 
    **응답 예시**:
@@ -117,9 +118,9 @@
    :statuscode 404: 신고 항목의 정보를 받아올 권한이 없음
 
 
-.. http:put:: /api/reports/(:id)
+.. http:put:: /api/reports/(id)
    
-   특정 리포팅의 정보 수정
+   특정 신고 항목의 정보 수정
 
    **요청 예시**:
 
@@ -128,7 +129,6 @@
       PUT /api/reports/124 HTTP/1.1
       Host: example.com
       Content-Type: application/json
-      Accept: application/json, text/javascript
 
       {
         "id": "124",
@@ -141,6 +141,7 @@
 
    JSON 파라미터에 대한 정보는 :ref:`report-object` 참조.
 
+   :param id: 신고 항목의 ID
    :reqheader Content-Type: ``application/x-www-form-urlencoded``
 
    **응답 예시**:
@@ -155,7 +156,7 @@
    :statuscode 400: 신고 항목의 정보가 올바르지 않음
    :statuscode 404: 신고 항목의 정보를 수정할 권한이 없음
 
-.. http:delete:: /api/reports/(:id)
+.. http:delete:: /api/reports/(id)
    
    특정 신고 항목을 삭제함
 
@@ -165,9 +166,8 @@
 
       DELETE /api/reports/124 HTTP/1.1
       Host: example.com
-      Content-Type: application/json
 
-   :reqheader Content-Type: ``application/json``
+   :param id: 신고 항목의 ID
 
    **응답 예시**:
 
@@ -192,7 +192,7 @@
 
       POST /api/reports HTTP/1.1
       Host: example.com
-      Accept: application/json, text/javascript
+      Content-Type: application/json
       
       {
         "type": "classinfo",
@@ -205,7 +205,7 @@
    단, `type` 이 ``classinfo`` 가 아닌 경우에는 `class_no` 속성이 존재하지 않아야 한다.
    각 속성에 대한 정보는 :ref:`report-object` 참조.
 
-   :reqheader Accept: ``application/json`` 혹은 ``text/javascript``
+   :reqheader Content-Type: ``application/json``
 
    **응답 예시**:
 

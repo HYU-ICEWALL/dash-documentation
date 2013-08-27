@@ -29,7 +29,7 @@
 
       POST /api/users HTTP/1.1
       Host: example.com
-      Accept: application/json, text/javascript
+      Content-Type: application/json
 
       {
         "email": "somebody@example.com",
@@ -41,7 +41,6 @@
    JSON 파라미터에 대한 정보는 :ref:`user-object` 참조.
 
    :reqheader Content-Type: ``application/json``
-   :reqheader Accept: ``application/json`` 혹은 ``text/javascript``
 
    **응답 예시**:
 
@@ -156,7 +155,6 @@
       PUT /api/users/me HTTP/1.1
       Host: example.com
       Content-Type: application/json
-      Accept: application/json, text/javascript
 
       {
         "email": "somebody@example.com",
