@@ -12,6 +12,9 @@
 
    * `id` – 시간표의 ID
    * `name` – 시간표의 이름
+   * `privacy` – 시간표의 공개 범위. 다음 중 하나의 값을 갖는다.
+      * ``public`` – 전체 공개
+      * ``private`` – 비공개
    * `created_by` – 시간표를 생성한 사용자의 ID. :ref:`user-object` 참조.
    * `created_time` – 시간표를 생성한 날짜와 시각. ISO-8601 date-time을 포함하는 문자열이다.
    * `classes` – 시간표에 포함된 강좌의 목록. :ref:`class-object` 의 배열로 이루어져 있다.
@@ -49,6 +52,7 @@
         {
           "id": "123",
           "name": "이번 학기 최종 시간표",
+          "privacy": "public",
           "created_by": "1",
           "created_time": "2013-08-25T09:28:28+0000",
           "classes": [
@@ -162,6 +166,7 @@
       {
         "id": "123",
         "name": "이번 학기 최종 시간표",
+        "privacy": "public",
         "created_by": "1",
         "created_time": "2013-08-25T09:28:28+0000",
         "classes": [
@@ -263,6 +268,7 @@
 
       {
         "name": "이번 학기 최종 시간표",
+        "privacy": "public",
         "classes": [
           {"course_no": "ITE231", "class_no": "10443"},
           {"course_no": "ITE316", "class_no": "10415"},
@@ -302,8 +308,8 @@
       Host: example.com
 
    :param tt_id: 시간표의 ID
-   :param from_list: `true`이면 사용자의 시간표 목록에서만 삭제
-                     `false`이면 시간표 자체를 삭제
+   :param from_list: `true` 이면 사용자의 시간표 목록에서만 삭제
+                     `false` 이면 시간표 자체를 삭제
 
    **응답 예시**:
 
@@ -316,11 +322,11 @@
 
 .. http:put:: /api/users/(user_id)/timetables/(tt_id)
 
-  사용자 ID가 `user_id`인 사용자가 보관하고 있는, 시간표 ID가 `tt_id`인 시간표를 수정
+   사용자 ID가 `user_id` 인 사용자가 보관하고 있는, 시간표 ID가 `tt_id` 인 시간표를 수정
 
-  **요청 예시**:
+   **요청 예시**:
 
-  .. sourcecode:: http
+   .. sourcecode:: http
 
     PUT /api/users/me/timetables/123 HTTP/1.1
     HOST: example.com
@@ -328,6 +334,7 @@
 
     {
       "name": "이번 학기 최종 시간표",
+      "privacy": "public",
       "classes": [
         {"course_no": "ITE231", "class_no": "10443"},
         {"course_no": "ITE316", "class_no": "10415"},
@@ -339,130 +346,129 @@
       ]
     }
 
-  JSON 파라미터에 대한 정보는 :ref:`timetable-object` 참조.
+   JSON 데이터에는 수정할 속성만 전달한다. JSON 파라미터에 대한 정보는 :ref:`timetable-object` 참조.
 
-  :param tt_id: 시간표의 ID
-  :param user_id: 사용자의 ID
+   :param tt_id: 시간표의 ID
+   :param user_id: 사용자의 ID
 
-  **응답 예시**:
+   **응답 예시**:
 
-  .. sourcecode:: http
+   .. sourcecode:: http
 
     HTTP/1.1 200 OK
 
-  :statuscode 200: 시간표 수정 성공
-  :statuscode 404: 시간표 'tt_id'를 수정할 권한이 없음
+   :statuscode 200: 시간표 수정 성공
+   :statuscode 404: 시간표 'tt_id'를 수정할 권한이 없음
 
 .. http:get:: /api/users/(user_id)/timetables/(tt_id)
 
-  사용자ID가 'user_id'이고 시간표ID가 'tt_id'인 시간표를 읽음
+   사용자ID가 'user_id'이고 시간표ID가 'tt_id'인 시간표를 읽음
 
-  **요청 예시**:
+   **요청 예시**:
 
-  .. sourcecode:: http
+   .. sourcecode:: http
 
       GET /api/users/me/timetables/123 HTTP/1.1
       HOST: example.com
       Accept: application/json, text/javascript
 
-  :param tt_id: 시간표의 ID
-  :param user_id: 사용자의 ID
+   :param tt_id: 시간표의 ID
+   :param user_id: 사용자의 ID
 
-  **응답 예시**:
+   **응답 예시**:
 
-  .. sourcecode:: http
+   .. sourcecode:: http
 
     HTTP/1.1 200 OK
     Content-Type: application/json
 
-    [
-      {
-        "id": "123",
-        "name": "이번 학기 최종 시간표",
-        "created_by": "1",
-        "created_time": "2013-08-25T09:28:28+0000",
-        "classes": [
-          {
-            "course_no": "ITE231",
-            "class_no": "10443",
-            "title": "컴퓨터구조론",
-            "instructor": "이인환",
-            "score": 3.00,
-            "time": [
-              {"start_time": 216, "end_time": 218, "room": "H77-0207"},
-              {"start_time": 514, "end_time": 516, "room": "H77-0207"}
-            ]
-          },
-          {
-            "course_no": "ITE316",
-            "class_no": "10415",
-            "title": "데이터베이스시스템",
-            "instructor": "김상욱",
-            "score": 3.00,
-            "time": [
-              {"start_time": 115, "end_time": 117, "room": "H77-0813"},
-              {"start_time": 315, "end_time": 317, "room": "H77-0813"}
-            ]
-          },
-          {
-            "course_no": "SYH003",
-            "class_no": "10130",
-            "title": "비즈니스리더십(HELP3)",
-            "instructor": null,
-            "score": 2.00,
-            "time": [
-              {"start_time": 607, "end_time": 610, "room": "H"}
-            ]
-          },
-          {
-            "course_no": "CSE406",
-            "class_no": "10407",
-            "title": "소프트웨어공학",
-            "instructor": "유인경",
-            "score": 3.00,
-            "time": [
-              {"start_time": 213, "end_time": 215, "room": "H93-0811"},
-              {"start_time": 306, "end_time": 308, "room": "H93-0811"}
-            ]
-          },
-          {
-            "course_no": "ELE429",
-            "class_no": "10400",
-            "title": "컴파일러",
-            "instructor": "임을규",
-            "score": 3.00,
-            "time": [
-              {"start_time": 303, "end_time": 305, "room": "H77-0813"},
-              {"start_time": 505, "end_time": 507, "room": "H77-0507"}
-            ]
-          },
-          {
-            "course_no": "ENE419",
-            "class_no": "10410",
-            "title": "컴퓨터네트워크",
-            "instructor": "조인휘",
-            "score": 3.00,
-            "time": [
-              {"start_time": 418, "end_time": 420, "room": "H77-0203"},
-              {"start_time": 512, "end_time": 514, "room": "H77-0501"}
-            ]
-          },
-          {
-            "course_no": "GEN606",
-            "class_no": "10417",
-            "title": "특허법의이해",
-            "instructor": "장의선",
-            "score": 2.00,
-            "time": [
-              {"start_time": 205, "end_time": 208, "room": "H77-0813"}
-            ]
-          }
-        ]
-      }
-    ]
+    {
+      "id": "123",
+      "name": "이번 학기 최종 시간표",
+      "privacy": "public",
+      "created_by": "1",
+      "created_time": "2013-08-25T09:28:28+0000",
+      "classes": [
+        {
+          "course_no": "ITE231",
+          "class_no": "10443",
+          "title": "컴퓨터구조론",
+          "instructor": "이인환",
+          "score": 3.00,
+          "time": [
+            {"start_time": 216, "end_time": 218, "room": "H77-0207"},
+            {"start_time": 514, "end_time": 516, "room": "H77-0207"}
+          ]
+        },
+        {
+          "course_no": "ITE316",
+          "class_no": "10415",
+          "title": "데이터베이스시스템",
+          "instructor": "김상욱",
+          "score": 3.00,
+          "time": [
+            {"start_time": 115, "end_time": 117, "room": "H77-0813"},
+            {"start_time": 315, "end_time": 317, "room": "H77-0813"}
+          ]
+        },
+        {
+          "course_no": "SYH003",
+          "class_no": "10130",
+          "title": "비즈니스리더십(HELP3)",
+          "instructor": null,
+          "score": 2.00,
+          "time": [
+            {"start_time": 607, "end_time": 610, "room": "H"}
+          ]
+        },
+        {
+          "course_no": "CSE406",
+          "class_no": "10407",
+          "title": "소프트웨어공학",
+          "instructor": "유인경",
+          "score": 3.00,
+          "time": [
+            {"start_time": 213, "end_time": 215, "room": "H93-0811"},
+            {"start_time": 306, "end_time": 308, "room": "H93-0811"}
+          ]
+        },
+        {
+          "course_no": "ELE429",
+          "class_no": "10400",
+          "title": "컴파일러",
+          "instructor": "임을규",
+          "score": 3.00,
+          "time": [
+            {"start_time": 303, "end_time": 305, "room": "H77-0813"},
+            {"start_time": 505, "end_time": 507, "room": "H77-0507"}
+          ]
+        },
+        {
+          "course_no": "ENE419",
+          "class_no": "10410",
+          "title": "컴퓨터네트워크",
+          "instructor": "조인휘",
+          "score": 3.00,
+          "time": [
+            {"start_time": 418, "end_time": 420, "room": "H77-0203"},
+            {"start_time": 512, "end_time": 514, "room": "H77-0501"}
+          ]
+        },
+        {
+          "course_no": "GEN606",
+          "class_no": "10417",
+          "title": "특허법의이해",
+          "instructor": "장의선",
+          "score": 2.00,
+          "time": [
+            {"start_time": 205, "end_time": 208, "room": "H77-0813"}
+          ]
+        }
+      ]
+    }
 
-  :ref:`timetable-object` 의 배열로 이루어져 있다.
+   :ref:`timetable-object` 의 배열로 이루어져 있다.
 
-  :resheader Content-Type: ``application/json``
-  :statuscode 200: 시간표들 받아오기 성공
-  :statuscode 404: 사용자 `user_id` 가 보관하고 있는 시간표의 목록을 받아올 권한이 없음
+   :resheader Content-Type: ``application/json``
+   :statuscode 200: 시간표들 받아오기 성공
+   :statuscode 404: 사용자 `user_id` 가 보관하고 있는 시간표의 목록을 받아올 권한이 없음
