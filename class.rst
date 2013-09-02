@@ -21,6 +21,7 @@
       * `room` – 강의 장소
 
    * `score` – 강좌의 학점. 실수 형태로 주어진다.
+   * `grade` – 강좌의 대상 학년. 정수 형태로 주어진다.
    * `instructor` – 강좌를 담당하는 교강사 성명
    * `category` – 강좌의 이수구분
 
@@ -40,7 +41,7 @@
       Accept: application/json, text/javascript
  
    :query name: 검색할 강좌 이름
-   :query grade: 검색할 강좌 학점
+   :query grade: 검색할 강좌의 대상 학년
    :query major: 검색할 강좌의 소속 전공
    :query class_no: 검색할 강좌의 강좌 코드
    :query course_no: 검색할 강좌의 과목 코드
@@ -67,6 +68,7 @@
             {"start_time": 415, "end_time": 417, "room": "H77-0207"}
           ],
           "score": 3.00,
+          "grade": 2,
           "instructor": "최윤성",
           "category": "전공핵심"
         },
@@ -80,6 +82,7 @@
             {"start_time": 515, "end_time": 518, "room": "H77-0607"}
           ],
           "score": 3.00,
+          "grade": 2,
           "instructor": "조인휘",
           "category": "전공핵심"
         },
@@ -93,6 +96,7 @@
             {"start_time": 403, "end_time": 405, "room": "H77-0207"}
           ],
           "score": 3.00,
+          "grade": 2,
           "instructor": "이상화",
           "category": "전공핵심"
         },
@@ -106,6 +110,7 @@
             {"start_time": 316, "end_time": 318, "room": "H77-0207"}
           ],
           "score": 3.00,
+          "grade": 2,
           "instructor": "이병호",
           "category": "기초필수"
         }
@@ -133,6 +138,7 @@
           {"start_time": 515, "end_time": 518, "room": "H77-0607"}
         ],
         "score": 3.00,
+        "grade": 2,
         "instructor": "조인휘",
         "category": "전공핵심"
       }
@@ -172,6 +178,7 @@
           {"start_time": 515, "end_time": 518, "room": "H77-0607"}
         ],
         "score": 3.00,
+        "grade": 2,
         "instructor": "조인휘",
         "category": "전공핵심"
       }
@@ -221,6 +228,7 @@
           {"start_time": 515, "end_time": 518, "room": "H77-0607"}
         ],
         "score": 3.00,
+        "grade": 2,
         "instructor": "조인휘",
         "category": "전공핵심"
       }
