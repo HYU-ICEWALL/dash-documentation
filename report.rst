@@ -156,6 +156,39 @@
    :statuscode 400: 신고 항목의 정보가 올바르지 않음
    :statuscode 404: 신고 항목의 정보를 수정할 권한이 없음
 
+.. http:patch:: /api/reports/(id)
+   
+   특정 신고 항목의 정보 수정
+
+   **요청 예시**:
+
+   .. sourcecode:: http
+
+      PATCH /api/reports/124 HTTP/1.1
+      Host: example.com
+      Content-Type: application/json
+
+      {
+        "status": "rejected"
+      }
+
+   수정할 필드의 데이터만 전송한다. JSON 파라미터에 대한 정보는 :ref:`report-object` 참조.
+
+   :param id: 신고 항목의 ID
+   :reqheader Content-Type: ``application/x-www-form-urlencoded``
+
+   **응답 예시**:
+
+   .. sourcecode:: http
+
+      HTTP/1.1 200 OK
+      Location: http://example.com/api/reports/124
+
+   :resheader Location: 신고 항목이 성공적으로 수정되었을 때, 수정된 신고 항목의 링크
+   :statuscode 200: 신고 항목의 정보 편집 성공
+   :statuscode 400: 신고 항목의 정보가 올바르지 않음
+   :statuscode 404: 신고 항목의 정보를 수정할 권한이 없음
+
 .. http:delete:: /api/reports/(id)
    
    특정 신고 항목을 삭제함
