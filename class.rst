@@ -20,7 +20,7 @@
       * `end_time` – 강의 종료 시간
       * `room` – 강의 장소
 
-   * `score` – 강좌의 학점. 실수 형태로 주어진다.
+   * `credit` – 강좌의 학점. 실수 형태로 주어진다.
    * `grade` – 강좌의 대상 학년. 정수 형태로 주어진다.
    * `instructor` – 강좌를 담당하는 교강사 성명
    * `category` – 강좌의 이수구분
@@ -67,7 +67,7 @@
             {"start_time": 106, "end_time": 108, "room": "H77-0207"},
             {"start_time": 415, "end_time": 417, "room": "H77-0207"}
           ],
-          "score": 3.00,
+          "credit": 3.00,
           "grade": 2,
           "instructor": "최윤성",
           "category": "전공핵심"
@@ -81,7 +81,7 @@
             {"start_time": 411, "end_time": 414, "room": "H77-0607"},
             {"start_time": 515, "end_time": 518, "room": "H77-0607"}
           ],
-          "score": 3.00,
+          "credit": 3.00,
           "grade": 2,
           "instructor": "조인휘",
           "category": "전공핵심"
@@ -95,7 +95,7 @@
             {"start_time": 207, "end_time": 209, "room": "H77-0207"},
             {"start_time": 403, "end_time": 405, "room": "H77-0207"}
           ],
-          "score": 3.00,
+          "credit": 3.00,
           "grade": 2,
           "instructor": "이상화",
           "category": "전공핵심"
@@ -109,7 +109,7 @@
             {"start_time": 116, "end_time": 118, "room": "H77-0203"},
             {"start_time": 316, "end_time": 318, "room": "H77-0207"}
           ],
-          "score": 3.00,
+          "credit": 3.00,
           "grade": 2,
           "instructor": "이병호",
           "category": "기초필수"
@@ -137,7 +137,7 @@
           {"start_time": 411, "end_time": 414, "room": "H77-0607"},
           {"start_time": 515, "end_time": 518, "room": "H77-0607"}
         ],
-        "score": 3.00,
+        "credit": 3.00,
         "grade": 2,
         "instructor": "조인휘",
         "category": "전공핵심"
@@ -177,7 +177,7 @@
           {"start_time": 411, "end_time": 414, "room": "H77-0607"},
           {"start_time": 515, "end_time": 518, "room": "H77-0607"}
         ],
-        "score": 3.00,
+        "credit": 3.00,
         "grade": 2,
         "instructor": "조인휘",
         "category": "전공핵심"
@@ -227,7 +227,7 @@
           {"start_time": 411, "end_time": 414, "room": "H77-0607"},
           {"start_time": 515, "end_time": 518, "room": "H77-0607"}
         ],
-        "score": 3.00,
+        "credit": 3.00,
         "grade": 2,
         "instructor": "조인휘",
         "category": "전공핵심"
