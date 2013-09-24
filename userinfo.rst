@@ -52,6 +52,7 @@
    :statuscode 201: 사용자 생성 성공 및 로그인 완료.
                     ``Location`` 헤더에 새로운 사용자의 정보가 담긴 링크를 전송.
    :statuscode 400: 양식 데이터가 올바르지 않음
+   :statuscode 409: 같은 이메일 주소로 생성된 계정이 이미 존재함
 
 .. http:post:: /api/reset_password
    
@@ -176,6 +177,8 @@
    :statuscode 200: 사용자 정보 편집 성공.
                     ``Location`` 헤더에 사용자의 정보가 담긴 링크를 전송.
    :statuscode 400: 양식 데이터가 올바르지 않음
+   :statuscode 404: 사용자가 존재하지 않음
+   :statuscode 409: 같은 이메일 주소로 생성된 계정이 이미 존재함
 
 .. http:patch:: /api/users/me
    
@@ -208,8 +211,10 @@
    :statuscode 200: 사용자 정보 편집 성공.
                     ``Location`` 헤더에 사용자의 정보가 담긴 링크를 전송.
    :statuscode 400: 양식 데이터가 올바르지 않음
+   :statuscode 404: 사용자가 존재하지 않음
+   :statuscode 409: 같은 이메일 주소로 생성된 계정이 이미 존재함
 
-.. http:delete:: /api/users/me
+.. http:post:: /api/users/me/delete
    
    현재 로그인한 사용자를 삭제.
 
@@ -217,7 +222,7 @@
 
    .. sourcecode:: http
 
-      DELETE /api/users/me HTTP/1.1
+      POST /api/users/me/delete HTTP/1.1
       Host: example.com
       Content-Type: application/json
 
@@ -234,3 +239,23 @@
 
    :statuscode 200: 사용자 삭제 성공
    :statuscode 404: 암호가 틀림
+
+.. http:get:: /api/logout
+   
+   현재 로그인한 사용자를 로그아웃시킴.
+
+   **요청 예시**:
+
+   .. sourcecode:: http
+
+      GET /api/logout HTTP/1.1
+      Host: example.com
+
+   **응답 예시**:
+
+   .. sourcecode:: http
+
+      HTTP/1.1 200 OK
+
+   :statuscode 200: 로그아웃 성공
+   :statuscode 404: 사용자가 로그인하지 않은 상태
