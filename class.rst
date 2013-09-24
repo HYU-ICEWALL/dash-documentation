@@ -156,7 +156,7 @@
    :statuscode 200: 강좌 추가 성공
    :statuscode 404: 강좌 추가 실패. 강좌 번호가 같은 강좌가 이미 존재하는 경우가 여기에 포함된다.
 
-.. http:put:: /api/classes/(class_no)
+.. http:patch:: /api/classes/(class_no)
 
    강좌 정보 수정
  
@@ -164,7 +164,7 @@
  
    .. sourcecode:: http
 
-      PUT /api/classes/10464 HTTP/1.1
+      PATCH /api/classes/10464 HTTP/1.1
       Host: example.com
       Content-Type: application/json
 
@@ -183,7 +183,7 @@
         "category": "전공핵심"
       }
  
-   JSON 파라미터에 대한 정보는 :ref:`class-object` 참조.
+   수정할 필드의 데이터만 전송한다. JSON 파라미터에 대한 정보는 :ref:`class-object` 참조.
 
    :param class_no: 강좌 번호
    :reqheader Content-Type: ``application/json``

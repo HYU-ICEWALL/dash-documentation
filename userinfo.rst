@@ -145,41 +145,6 @@
    :statuscode 200: 오류 없음
    :statuscode 404: 사용자가 로그인하지 않은 상태
 
-.. http:put:: /api/users/me
-   
-   현재 로그인한 사용자의 정보를 편집.
-
-   **요청 예시**:
-
-   .. sourcecode:: http
-
-      PUT /api/users/me HTTP/1.1
-      Host: example.com
-      Content-Type: application/json
-
-      {
-        "email": "somebody@example.com",
-        "password": "4321",
-        "major": "MAJORCODE",
-        "fb_id": "facebook.id"
-      }
-
-   JSON 파라미터에 대한 정보는 :ref:`user-object` 참조.
-   :reqheader Content-Type: ``application/json``
-
-   **응답 예시**:
-
-   .. sourcecode:: http
-
-      HTTP/1.1 200 OK
-      Location: http://example.com/api/users/me
-
-   :statuscode 200: 사용자 정보 편집 성공.
-                    ``Location`` 헤더에 사용자의 정보가 담긴 링크를 전송.
-   :statuscode 400: 양식 데이터가 올바르지 않음
-   :statuscode 404: 사용자가 존재하지 않음
-   :statuscode 409: 같은 이메일 주소로 생성된 계정이 이미 존재함
-
 .. http:patch:: /api/users/me
    
    현재 로그인한 사용자의 정보를 편집.

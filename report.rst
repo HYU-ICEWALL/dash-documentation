@@ -117,45 +117,6 @@
    :statuscode 200: 신고 항목 받아오기 성공
    :statuscode 404: 신고 항목의 정보를 받아올 권한이 없음
 
-
-.. http:put:: /api/reports/(id)
-   
-   특정 신고 항목의 정보 수정
-
-   **요청 예시**:
-
-   .. sourcecode:: http
-
-      PUT /api/reports/124 HTTP/1.1
-      Host: example.com
-      Content-Type: application/json
-
-      {
-        "id": "124",
-        "type": "idea",
-        "content": "강의평가 커뮤니티가 있으면 좋겠어요",
-        "status": "rejected",
-        "created_time": "2013-08-26T04:28:28+0000"
-        "created_by": "21"
-      }
-
-   JSON 파라미터에 대한 정보는 :ref:`report-object` 참조.
-
-   :param id: 신고 항목의 ID
-   :reqheader Content-Type: ``application/x-www-form-urlencoded``
-
-   **응답 예시**:
-
-   .. sourcecode:: http
-
-      HTTP/1.1 200 OK
-      Location: http://example.com/api/reports/124
-
-   :resheader Location: 신고 항목이 성공적으로 수정되었을 때, 수정된 신고 항목의 링크
-   :statuscode 200: 신고 항목의 정보 편집 성공
-   :statuscode 400: 신고 항목의 정보가 올바르지 않음
-   :statuscode 404: 신고 항목의 정보를 수정할 권한이 없음
-
 .. http:patch:: /api/reports/(id)
    
    특정 신고 항목의 정보 수정

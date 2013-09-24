@@ -335,50 +335,6 @@
    :statuscode 400: 주어진 파라미터가 올바르지 않음
    :statuscode 404: 시간표 `tt_id` 를 삭제할 권한이 없음
 
-.. http:put:: /api/users/(user_id)/timetables/(tt_id)
-
-   사용자 ID가 `user_id` 인 사용자가 보관하고 있는, 시간표 ID가 `tt_id` 인 시간표를 수정
-
-   **요청 예시**:
-
-   .. sourcecode:: http
-
-    PUT /api/users/me/timetables/123 HTTP/1.1
-    HOST: example.com
-    Content-Type: application/json
-
-    {
-      "id": "123",
-      "name": "이번 학기 최종 시간표",
-      "privacy": "public",
-      "created_by": "1",
-      "created_time": "2013-08-25T09:28:28+0000",
-      "classes": [
-        {"course_no": "ITE231", "class_no": "10443"},
-        {"course_no": "ITE316", "class_no": "10415"},
-        {"course_no": "SYH003", "class_no": "10130"},
-        {"course_no": "CSE416", "class_no": "10507"},
-        {"course_no": "ELE439", "class_no": "10100"},
-        {"course_no": "EFE419", "class_no": "10460"},
-        {"course_no": "NEG606", "class_no": "10418"}
-      ]
-    }
-
-   JSON 파라미터에 대한 정보는 :ref:`timetable-object` 참조.
-
-   :param tt_id: 시간표의 ID
-   :param user_id: 사용자의 ID
-
-   **응답 예시**:
-
-   .. sourcecode:: http
-
-    HTTP/1.1 200 OK
-
-   :statuscode 200: 시간표 수정 성공
-   :statuscode 400: 수정된 시간표 데이터가 올바르지 않음
-   :statuscode 404: 시간표 'tt_id'를 수정할 권한이 없음
-
 .. http:patch:: /api/users/(user_id)/timetables/(tt_id)
 
    사용자 ID가 `user_id` 인 사용자가 보관하고 있는, 시간표 ID가 `tt_id` 인 시간표를 수정
